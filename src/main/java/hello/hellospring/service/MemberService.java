@@ -8,7 +8,12 @@ import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
+
     public Long join(Member member) {
         // 회원 가입
         // 같은 이름의 중복 회원은 허용하지 않는다는 룰 생성
@@ -29,7 +34,7 @@ public class MemberService {
         return memberRepository.findAll();
     }
 
-    public Optional<Member> findeOne(Long memberId) {
+    public Optional<Member> findOne(Long memberId) {
         return memberRepository.findById(memberId);
     }
 }
