@@ -27,7 +27,7 @@ public class HelloController {
     }
 
     @GetMapping("hello-api")
-    @ResponseBody  // 객체로 받는다면 json 형식으로 반환
+    @ResponseBody  // 객체로 받는다면 json 형식으로 반환함.
     public Hello helloApi(@RequestParam("name") String name){
         Hello hello = new Hello();
         hello.setName(name);
@@ -41,7 +41,6 @@ public class HelloController {
         public String getName() {
             return name;
         }
-
         public void setName(String name) {
             this.name = name;
         }
