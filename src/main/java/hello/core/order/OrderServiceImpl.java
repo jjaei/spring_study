@@ -1,5 +1,6 @@
 package hello.core.order;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
@@ -14,7 +15,7 @@ public class OrderServiceImpl implements OrderService{
 /*    @Autowired  생성자가 하나일 경우 Autowired 생략 가능
       @RequiredArgsConstructor가 있어서 생성자를 작성해주지 않아도 됨.
 */
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
